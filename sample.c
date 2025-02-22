@@ -1,33 +1,38 @@
- #include <stdio.h>
+// C Program to check for prime number using
+//  Simple Trial Division
+#include <stdbool.h>
+#include <stdio.h>
 
 int main() {
+    int n = 29;
 
- int num, i, flag = 0;
+    int cnt = 0;
 
- printf(“Enter a number: “);
+    // If number is less than/equal to 1,
+    // it is not prime
+    if (n <= 1)
+        printf("%d is NOT prime\n", n);
+    else {
 
- scanf(“%d”, &num);
+        // Check for divisors from 1 to n
+        for (int i = 1; i <= n; i++) {
 
- for (i = 2; i <= num / 2; ++i) {
+            // Check how many number is divisible
+            // by n
+            if (n % i == 0)
+                cnt++;
+        }
 
- if (num % i == 0) {
+        // If n is divisible by more than 2 numbers
+        // then it is not prime
+        if (cnt > 2)
+            printf("%d is NOT prime\n", n);
 
- flag = 1;
+        // else it is prime
+        else
+            printf("%d is prime", n);
+    }
 
- break;
+    return 0;
+}
 
- }
-
- }
-
- if (flag == 0)
-
- printf(“%d is a prime number.\n”, num);
-
- else
-
- printf(“%d is not a prime number.\n”, num);
-
- return 0;
-
- }
